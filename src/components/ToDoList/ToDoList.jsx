@@ -1,4 +1,5 @@
 import React from "react";
+import ToDoItem from "./ToDoItem";
 import "./ToDoList.css";
 
 const ToDoList = (props) => {
@@ -6,11 +7,7 @@ const ToDoList = (props) => {
     <div>
       <ul>
         {props.items.map((item) => (
-          <li key={item.id}>
-            <h1>{item.title}</h1>
-            <p>{item.date.toLocaleString()}</p>
-            <p>{item.status}</p>
-          </li>
+          <ToDoItem key={item.id} item={item} />
         ))}
       </ul>
     </div>

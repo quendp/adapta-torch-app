@@ -1,7 +1,10 @@
+import { useState } from "react";
 import "./App.css";
+import ToDoForm from "./components/ToDoForm/ToDoForm";
 import ToDoList from "./components/ToDoList/ToDoList";
 
 function App() {
+  
   const toDo = [
     {
       id: "1",
@@ -16,10 +19,20 @@ function App() {
       status: "In Progress",
     },
   ];
+
+  const [toDos, setToDos] = useState(toDo);
+
+  const addToDoHandler = (toDoData) => {
+    setToDos((prevToDos) => {
+      return [toDoData, ...prevToDos]
+    });
+  }
+
   return (
     <div>
+      <ToDoForm onAddToDo={addToDoHandler} />
       <h1>hello Adapta</h1>
-      <ToDoList items={toDo} />
+      <ToDoList items={toDos}  />
     </div>
   );
 }
