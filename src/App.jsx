@@ -29,14 +29,21 @@ function App() {
   };
 
   const editItemHandler = (itemId) => {
-    console.log("on app.jsx: ", itemId)
+    console.log("update: ", itemId)
+  }
+
+  const deleteItemHandler = (itemId) => {
+    console.log("delete: ", itemId);
+    setToDos((prevToDos) => {
+      return prevToDos.filter((item) => item.id !== itemId);
+    });
   }
 
   return (
     <div>
       <ToDoForm onAddToDo={addToDoHandler} />
       <h1>hello Adapta</h1>
-      <ToDoList items={toDos} onEditItem={editItemHandler} />
+      <ToDoList items={toDos} onEditItem={editItemHandler} onDeleteItem={deleteItemHandler} />
     </div>
   );
 }
