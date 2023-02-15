@@ -7,7 +7,7 @@ const ToDoList = (props) => {
     <div>
       <ul>
         {props.items.map((item) => (
-          <ToDoItem key={item.id} item={item} />
+          <ToDoItem key={item.id} item={item} onEditHandler={props.onEditItem} />
         ))}
       </ul>
     </div>

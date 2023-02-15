@@ -26,13 +26,17 @@ function App() {
     setToDos((prevToDos) => {
       return [toDoData, ...prevToDos]
     });
+  };
+
+  const editItemHandler = (itemId) => {
+    console.log("on app.jsx: ", itemId)
   }
 
   return (
     <div>
       <ToDoForm onAddToDo={addToDoHandler} />
       <h1>hello Adapta</h1>
-      <ToDoList items={toDos}  />
+      <ToDoList items={toDos} onEditItem={editItemHandler} />
     </div>
   );
 }
