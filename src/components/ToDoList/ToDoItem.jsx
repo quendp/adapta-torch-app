@@ -17,7 +17,7 @@ const ToDoItem = (props) => {
       <h1>{props.item.title}</h1>
       <p>{props.item.date.toLocaleString()}</p>
       <p>{props.item.status}</p>
-      <button onClick={editItemHandler}>Edit</button>
+      <button onClick={editItemHandler}>Done</button>
       <button onClick={deleteItemHandler}>Delete</button>
     </li>
   );

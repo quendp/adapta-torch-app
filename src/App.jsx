@@ -29,11 +29,17 @@ function App() {
   };
 
   const editItemHandler = (itemId) => {
-    console.log("update: ", itemId)
+    const newItems = toDos.map(toDo => {
+      if (toDo.id == itemId){
+        return {...toDo, status: "Done"}
+      }
+      return toDo
+    });
+
+    setToDos(newItems);
   }
 
   const deleteItemHandler = (itemId) => {
-    console.log("delete: ", itemId);
     setToDos((prevToDos) => {
       return prevToDos.filter((item) => item.id !== itemId);
     });
